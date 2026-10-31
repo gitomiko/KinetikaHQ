@@ -1,40 +1,27 @@
-# Kinetika website
+# Kinetika public website
 
-This is the standalone `kinetika.id` site: Landing, Docs, Portfolio, and Blog.
-It is intentionally separate from `hq.kinetika.id`, which is served by the
-`hq-portal` container.
-
-## Current hosting
-
-- Host: Biz VM `192.168.110.170`
-- Deployment path: `/opt/homelab/kinetika-web`
-- Container: `kinetika-web` (Caddy static file server)
-- Origin: `192.168.110.170:8090`
-- Gateway: NPM on `192.168.110.100` routes `kinetika.id` and `www.kinetika.id`
-  to this origin.
-- Cloudflare Access is managed at the edge for the site.
-
-The HQ administration portal remains on Core VM `192.168.110.111` at port 80
-in its own `hq-portal` container and has its own content and gateway route.
-
-The public website was migrated from Core VM `111` to Biz VM `170` on
-2026-11-01. The former origin remains available temporarily for rollback.
+This app serves `kinetika.id`: Landing, Docs, Portfolio, and Blog. It is
+separate from the HQ administration portal in `apps/hq`.
 
 ## Files
 
 - `Caddyfile` — static server, security headers, health endpoint, and 404 page
 - `docker-compose.yml` — standalone Caddy container
-- `.env` — local bind address and port; copy from `.env.example` when restoring
+- `.env.example` — safe local bind defaults
 - `site/` — built website content
 
-## Start or update the service
+The canonical content and design source lives in `packages/design`. Publish a
+fresh build into this app's `site/` directory; do not commit private runtime
+configuration.
 
-From this directory on the Core VM:
+## Local run
 
 ```sh
+cp .env.example .env
 docker compose up -d kinetika-web
-curl -H 'Host: kinetika.id' http://192.168.110.111:8090/
+curl -H 'Host: kinetika.id' http://127.0.0.1:8090/healthz
 ```
 
-The source files in `site/` are independent of the HQ site. Replace them only
-when publishing a new Kinetika website build.
+For a private deployment, set `WEB_BIND_IP` and `WEB_HTTP_PORT` in the local,
+untracked `.env`. Keep gateway addresses, internal routes, credentials, and
+other infrastructure details in private operations documentation.

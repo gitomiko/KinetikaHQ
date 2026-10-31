@@ -1,0 +1,10 @@
+{
+  "name": "kinetika-hq-monorepo",
+  "private": true,
+  "description": "Kinetika HQ, public website, and design system monorepo",
+  "scripts": {
+    "dev:hq": "node apps/hq/server.js",
+    "build:web": "npm --prefix packages/design run build && rsync -a --delete packages/design/site/ apps/web/site/",
+    "check:sensitive": "python3 scripts/check_sensitive_files.py"
+  }
+}

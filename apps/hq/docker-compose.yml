@@ -13,6 +13,8 @@ services:
     <<: *common
     image: caddy:2.8-alpine
     container_name: hq-portal
+    environment:
+      COMFY_UPSTREAM: ${COMFY_UPSTREAM:-127.0.0.1:8188}
     ports:
       - "${TOOLS_BIND_IP:-0.0.0.0}:80:80"
       - "${TOOLS_BIND_IP:-0.0.0.0}:443:443"

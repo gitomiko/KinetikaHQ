@@ -83,8 +83,8 @@ Add a CI job (Gitea Actions or GitHub Actions) triggered on push to `main`:
 ```
 npm ci
 npm run build
-rsync -a --delete site/ core@192.168.110.136:/opt/homelab/node-136-kinetika-web/site/
-ssh core@192.168.110.136 'cd /opt/homelab/node-136-kinetika-web && docker compose restart kinetika-web'
+rsync -a --delete site/ deploy@web-host:/opt/kinetika-web/site/
+ssh deploy@web-host 'cd /opt/kinetika-web && docker compose restart kinetika-web'
 ```
 
 Then publishing in the CMS → commit → CI builds and deploys, no terminal needed.

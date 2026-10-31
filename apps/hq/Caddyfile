@@ -25,5 +25,5 @@ http://comfy.kinetika.id {
     Referrer-Policy strict-origin-when-cross-origin
   }
 
-  reverse_proxy 192.168.110.223:8188
+  reverse_proxy {$COMFY_UPSTREAM:127.0.0.1:8188}
 }
