@@ -6,27 +6,39 @@
     <title>Kinetika HQ</title>
     <meta
       name="description"
-      content="Kinetika HQ portal template for internal tool launch and navigation."
+      content="Kinetika HQ portal for homelab application launch and navigation."
     />
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=20260412r" />
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico?v=20260412r" />
-    <link rel="shortcut icon" href="assets/favicon.ico?v=20260412r" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=20260630r" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico?v=20260630r" />
+    <link rel="shortcut icon" href="assets/favicon.ico?v=20260630r" />
     <meta
       name="theme-color"
       media="(prefers-color-scheme: light)"
-      content="#f5f1eb"
+      content="#F5F1EB"
     />
     <meta
       name="theme-color"
       media="(prefers-color-scheme: dark)"
-      content="#1c1c1b"
+      content="#1C1C1B"
     />
-    <link rel="stylesheet" href="styles.css?v=20260412r" />
-    <script defer src="app.js?v=20260412r"></script>
+
+    <!-- Kinetika Design System v2.5.0 — fonts (non-blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Syne:wght@400;500;700;800&family=DM+Mono:wght@300;400;500&display=swap">
+
+    <link rel="stylesheet" href="assets/tokens.css?v=20260630r" />
+    <link rel="stylesheet" href="styles.css?v=20260630r" />
+    <script defer src="app.js?v=20260630r"></script>
   </head>
   <body>
     <main class="shell">
       <header class="chrome chrome-top">
+        <button id="menuToggle" class="hamburger" type="button" aria-label="Open sections menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
         <span class="chrome-dots" aria-hidden="true"><i></i><i></i><i></i></span>
         <span class="chrome-brand" id="topBrand">kinetika hq · portal</span>
         <span class="chrome-right">
@@ -36,7 +48,7 @@
         </span>
       </header>
 
-      <aside class="sidebar">
+      <aside class="sidebar" id="sidebar">
         <div class="brand">
           <p class="brand-name" id="titleText">Kinetika HQ</p>
           <p class="brand-eyebrow" id="eyebrowText">KINETIKA CONTROL PLANE</p>

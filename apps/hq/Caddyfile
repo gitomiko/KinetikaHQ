@@ -1,0 +1,29 @@
+http://hq.kinetika.id {
+  root * /srv
+  encode zstd gzip
+
+  header {
+    X-Content-Type-Options nosniff
+    X-Frame-Options SAMEORIGIN
+    Referrer-Policy strict-origin-when-cross-origin
+  }
+
+  @health path /healthz
+  route {
+    respond @health ok 200
+    try_files {path} /index.html
+    file_server
+  }
+}
+
+http://comfy.kinetika.id {
+  encode zstd gzip
+
+  header {
+    X-Content-Type-Options nosniff
+    X-Frame-Options SAMEORIGIN
+    Referrer-Policy strict-origin-when-cross-origin
+  }
+
+  reverse_proxy 192.168.110.223:8188
+}

@@ -17,7 +17,7 @@ window.KINETIKA_HQ_CONFIG = {
           name: "Admin Console",
           description: "Private service entry point.",
           href: "https://service.internal.example",
-          fallbackHref: "http://127.0.0.1:8080",
+          fallbackHref: "https://127.0.0.1:8080",
           mark: "AC",
           zone: "001",
           status: "live",

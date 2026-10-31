@@ -1,0 +1,705 @@
+/**
+ * KINETIKA DESIGN SYSTEM
+ * tokens.css — Design Tokens v2.5.0
+ *
+ * ir0nm0nk visual identity
+ * Built by hand. Honest by default.
+ *
+ * GENERATED FILE — do not edit. Source of truth: tokens.json
+ * Rebuild with: node design/build-tokens.mjs
+ *
+ * Fonts are no longer imported here (a CSS @import blocks rendering).
+ * Load them via <link> with preconnect, or @import 'fonts.css' — see fonts.css.
+ *
+ * Usage:
+ *   @import 'tokens.css';
+ *   background: var(--color-bg-base);
+ *   color: var(--color-text-primary);
+ *   font-family: var(--font-display);
+ *
+ * Theming:
+ *   Default is warm-dark. Without a data-theme attribute the OS
+ *   preference is respected; set <html data-theme="dark|light"> to force.
+ */
+
+
+/* ============================================================
+   FONTS
+   ============================================================ */
+
+:root {
+  /* Three voices, one system */
+  --font-display   : 'Cormorant Garamond', Georgia, serif;
+  --font-interface : Syne, system-ui, sans-serif;
+  --font-technical : 'DM Mono', 'Courier New', monospace;
+
+  /* Aliases */
+  --font-serif : var(--font-display);
+  --font-sans  : var(--font-interface);
+  --font-mono  : var(--font-technical);
+}
+
+
+/* ============================================================
+   COLOR PALETTE — RAW TOKENS
+   ============================================================ */
+
+:root {
+  --raw-linen                : #F5F1EB; /* Light mode base background */
+  --raw-cloud-dancer         : #EDE8E0; /* Primary text (dark), surface (light) */
+  --raw-pale-alloy           : #C8C4BE; /* Secondary text, UI elements */
+  --raw-iron-mist            : #8A8680; /* Tertiary text (dark), disabled (light) */
+  --raw-graphite             : #4A4A48; /* Disabled text (dark) */
+  --raw-ash                  : #3A3A38; /* Ghost text, strong borders (dark) */
+  --raw-forge                : #252523; /* Borders, dividers, overlays (dark) */
+  --raw-coal                 : #1E1E1C; /* Elevated surfaces, subtle borders (dark) */
+  --raw-ember                : #1C1C1B; /* Main app background (dark) — warm, not pure black */
+  --raw-void                 : #161615; /* Cards, sidebar, panels (dark) */
+  --raw-soot                 : #111110; /* Statusbar, deepest layer (dark) */
+  --raw-patina               : #8C6A3A; /* Accent primary — mid patina. Borders & large UI on dark (3.4:1); use patina-bright for text */
+  --raw-patina-bright        : #C0905A; /* Patina for text on dark backgrounds (6.0:1 on ember) */
+  --raw-patina-deep          : #2A1C10; /* Dark bg for patina badges */
+  --raw-patina-mid           : #5A3A22; /* Patina border (dark) */
+  --raw-patina-light         : #F0E8DC; /* Light bg for patina badges */
+  --raw-patina-text-light    : #7A5228; /* Patina text on light bg (6.1:1 on linen) */
+  --raw-verdigris            : #5A7A6A; /* Accent secondary — full patina. Borders & large UI on dark (3.6:1); use verdigris-bright for text */
+  --raw-verdigris-bright     : #85AE99; /* Verdigris for text on dark backgrounds (6.9:1 on ember) */
+  --raw-verdigris-deep       : #101A18; /* Dark bg for verdigris badges */
+  --raw-verdigris-mid        : #2A4A42; /* Verdigris border (dark) */
+  --raw-verdigris-light      : #DFF0EA; /* Light bg for verdigris badges */
+  --raw-verdigris-text-light : #3A6A5A; /* Verdigris text on light bg (5.1:1 on linen) */
+  --raw-copper               : #BE8E50; /* Spare warm accent — copper glow (5.8:1). Was status-live; Live is now azure-bright */
+  --raw-amber                : #CFA268; /* Warning status on dark (7.3:1) — heated metal */
+  --raw-rust                 : #D4663F; /* Error status on dark (4.7:1) — oxidized iron */
+  --raw-azure                : #5E7693; /* Accent — azurite blue (oxidized copper carbonate). Borders & large UI on dark (3.7:1); use azure-bright for text */
+  --raw-azure-bright         : #8FB2D2; /* Azure for text on dark backgrounds (7.7:1 on ember) */
+  --raw-azure-deep           : #0E1620; /* Dark bg for azure badges */
+  --raw-azure-mid            : #2C4056; /* Azure border (dark) */
+  --raw-azure-light          : #DEE8F2; /* Light bg for azure badges */
+  --raw-azure-text-light     : #3C5C7C; /* Azure text on light bg (6.2:1 on linen) */
+  --raw-teal                 : #4E8890; /* Accent — chrysocolla teal (hydrated copper). Borders & large UI on dark (4.3:1); use teal-bright for text */
+  --raw-teal-bright          : #7DBDC6; /* Teal for text on dark backgrounds (8.1:1 on ember) */
+  --raw-teal-deep            : #0C1A1C; /* Dark bg for teal badges */
+  --raw-teal-mid             : #234E54; /* Teal border (dark) */
+  --raw-teal-light           : #D8F0F3; /* Light bg for teal badges */
+  --raw-teal-text-light      : #2E6A74; /* Teal text on light bg (5.4:1 on linen) */
+  --raw-amethyst             : #7E6C9E; /* Accent — manganese violet (oxidized manganese). Borders & large UI on dark (3.7:1); use amethyst-bright for text */
+  --raw-amethyst-bright      : #B5A4D6; /* Amethyst for text on dark backgrounds (7.5:1 on ember) */
+  --raw-amethyst-deep        : #161020; /* Dark bg for amethyst badges */
+  --raw-amethyst-mid         : #40365C; /* Amethyst border (dark) */
+  --raw-amethyst-light       : #E9E2F4; /* Light bg for amethyst badges */
+  --raw-amethyst-text-light  : #5C4E7E; /* Amethyst text on light bg (6.6:1 on linen) */
+  --raw-garnet               : #A05E72; /* Accent — garnet rose (iron-aluminium silicate). Borders & large UI on dark (3.5:1); use garnet-bright for text */
+  --raw-garnet-bright        : #D498A8; /* Garnet for text on dark backgrounds (7.2:1 on ember) */
+  --raw-garnet-deep          : #200E14; /* Dark bg for garnet badges */
+  --raw-garnet-mid           : #5A2C3A; /* Garnet border (dark) */
+  --raw-garnet-light         : #F2E0E6; /* Light bg for garnet badges */
+  --raw-garnet-text-light    : #8C3C52; /* Garnet text on light bg (6.5:1 on linen) */
+}
+
+
+/* ============================================================
+   SEMANTIC TOKENS — DARK MODE (default)
+   ============================================================ */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Backgrounds */
+  --color-bg-base     : var(--raw-ember);
+  --color-bg-surface  : var(--raw-void);
+  --color-bg-elevated : var(--raw-coal);
+  --color-bg-sunken   : var(--raw-soot);
+  --color-bg-overlay  : var(--raw-forge);
+
+  /* Text */
+  --color-text-primary   : var(--raw-cloud-dancer);
+  --color-text-secondary : var(--raw-pale-alloy);
+  --color-text-tertiary  : var(--raw-iron-mist);
+  --color-text-disabled  : var(--raw-graphite);
+  --color-text-ghost     : var(--raw-ash);
+
+  /* Borders */
+  --color-border-strong  : var(--raw-ash);
+  --color-border-default : var(--raw-forge);
+  --color-border-subtle  : var(--raw-coal);
+
+  /* Accents — patina (primary), verdigris (secondary) + mineral palette (azure, teal, amethyst, garnet) */
+  --color-accent-primary          : var(--raw-patina);
+  --color-accent-primary-bg       : var(--raw-patina-deep);
+  --color-accent-primary-border   : var(--raw-patina-mid);
+  --color-accent-primary-text     : var(--raw-patina-bright);
+  --color-accent-secondary        : var(--raw-verdigris);
+  --color-accent-secondary-bg     : var(--raw-verdigris-deep);
+  --color-accent-secondary-border : var(--raw-verdigris-mid);
+  --color-accent-secondary-text   : var(--raw-verdigris-bright);
+  --color-accent-azure            : var(--raw-azure);
+  --color-accent-azure-bg         : var(--raw-azure-deep);
+  --color-accent-azure-border     : var(--raw-azure-mid);
+  --color-accent-azure-text       : var(--raw-azure-bright);
+  --color-accent-teal             : var(--raw-teal);
+  --color-accent-teal-bg          : var(--raw-teal-deep);
+  --color-accent-teal-border      : var(--raw-teal-mid);
+  --color-accent-teal-text        : var(--raw-teal-bright);
+  --color-accent-amethyst         : var(--raw-amethyst);
+  --color-accent-amethyst-bg      : var(--raw-amethyst-deep);
+  --color-accent-amethyst-border  : var(--raw-amethyst-mid);
+  --color-accent-amethyst-text    : var(--raw-amethyst-bright);
+  --color-accent-garnet           : var(--raw-garnet);
+  --color-accent-garnet-bg        : var(--raw-garnet-deep);
+  --color-accent-garnet-border    : var(--raw-garnet-mid);
+  --color-accent-garnet-text      : var(--raw-garnet-bright);
+
+  /* Status */
+  --color-status-live    : var(--raw-azure-bright);
+  --color-status-online  : var(--raw-verdigris-bright);
+  --color-status-warning : var(--raw-amber);
+  --color-status-error   : var(--raw-rust);
+
+  /* Shadows — warm-tinted, never pure black */
+  --shadow-sm : 0 1px 2px rgba(12, 10, 8, 0.50);
+  --shadow-md : 0 2px 8px rgba(12, 10, 8, 0.45);
+  --shadow-lg : 0 8px 24px rgba(12, 10, 8, 0.50);
+
+  /* Theme-scoped component values */
+  --card-active-bg     : #1A1410;
+  --btn-primary-bg     : var(--raw-patina-bright);
+  --btn-primary-text   : var(--raw-ember);
+  --input-border-color : var(--raw-iron-mist);
+}
+
+
+/* ============================================================
+   SEMANTIC TOKENS — LIGHT MODE
+   ============================================================ */
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Backgrounds */
+  --color-bg-base     : #F1F0EC;
+  --color-bg-surface  : #E9E8E2;
+  --color-bg-elevated : #E1E0D9;
+  --color-bg-sunken   : #D2D1C9;
+  --color-bg-overlay  : #F7F6F2;
+
+  /* Text */
+  --color-text-primary   : var(--raw-ember);
+  --color-text-secondary : #2E2E2C;
+  --color-text-tertiary  : #5A5A58;
+  --color-text-disabled  : var(--raw-iron-mist);
+  --color-text-ghost     : #B8B3AC;
+
+  /* Borders */
+  --color-border-strong  : #B8B3AC;
+  --color-border-default : #D4CFC8;
+  --color-border-subtle  : #E0DBD4;
+
+  /* Accents — patina (primary), verdigris (secondary) + mineral palette (azure, teal, amethyst, garnet) */
+  --color-accent-primary          : var(--raw-patina);
+  --color-accent-primary-bg       : var(--raw-patina-light);
+  --color-accent-primary-border   : #C8A878;
+  --color-accent-primary-text     : var(--raw-patina-text-light);
+  --color-accent-secondary        : var(--raw-verdigris);
+  --color-accent-secondary-bg     : var(--raw-verdigris-light);
+  --color-accent-secondary-border : #8ABCAC;
+  --color-accent-secondary-text   : var(--raw-verdigris-text-light);
+  --color-accent-azure            : var(--raw-azure);
+  --color-accent-azure-bg         : var(--raw-azure-light);
+  --color-accent-azure-border     : #9DB2CC;
+  --color-accent-azure-text       : var(--raw-azure-text-light);
+  --color-accent-teal             : var(--raw-teal);
+  --color-accent-teal-bg          : var(--raw-teal-light);
+  --color-accent-teal-border      : #92BFC6;
+  --color-accent-teal-text        : var(--raw-teal-text-light);
+  --color-accent-amethyst         : var(--raw-amethyst);
+  --color-accent-amethyst-bg      : var(--raw-amethyst-light);
+  --color-accent-amethyst-border  : #B7A9D2;
+  --color-accent-amethyst-text    : var(--raw-amethyst-text-light);
+  --color-accent-garnet           : var(--raw-garnet);
+  --color-accent-garnet-bg        : var(--raw-garnet-light);
+  --color-accent-garnet-border    : #CFA0AE;
+  --color-accent-garnet-text      : var(--raw-garnet-text-light);
+
+  /* Status */
+  --color-status-live    : var(--raw-azure-text-light);
+  --color-status-online  : #4A6658;
+  --color-status-warning : #7E5A30;
+  --color-status-error   : #A32D2D;
+
+  /* Shadows — warm-tinted, never pure black */
+  --shadow-sm : 0 1px 2px rgba(28, 28, 27, 0.08);
+  --shadow-md : 0 2px 8px rgba(28, 28, 27, 0.10);
+  --shadow-lg : 0 8px 24px rgba(28, 28, 27, 0.14);
+
+  /* Theme-scoped component values */
+  --card-active-bg     : #EAE0D4;
+  --btn-primary-bg     : var(--raw-patina-text-light);
+  --btn-primary-text   : var(--raw-linen);
+  --input-border-color : #807C76;
+}
+
+/* No-JS / no-attribute fallback: follow the OS preference */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+  color-scheme: light;
+
+  /* Backgrounds */
+  --color-bg-base     : #F1F0EC;
+  --color-bg-surface  : #E9E8E2;
+  --color-bg-elevated : #E1E0D9;
+  --color-bg-sunken   : #D2D1C9;
+  --color-bg-overlay  : #F7F6F2;
+
+  /* Text */
+  --color-text-primary   : var(--raw-ember);
+  --color-text-secondary : #2E2E2C;
+  --color-text-tertiary  : #5A5A58;
+  --color-text-disabled  : var(--raw-iron-mist);
+  --color-text-ghost     : #B8B3AC;
+
+  /* Borders */
+  --color-border-strong  : #B8B3AC;
+  --color-border-default : #D4CFC8;
+  --color-border-subtle  : #E0DBD4;
+
+  /* Accents — patina (primary), verdigris (secondary) + mineral palette (azure, teal, amethyst, garnet) */
+  --color-accent-primary          : var(--raw-patina);
+  --color-accent-primary-bg       : var(--raw-patina-light);
+  --color-accent-primary-border   : #C8A878;
+  --color-accent-primary-text     : var(--raw-patina-text-light);
+  --color-accent-secondary        : var(--raw-verdigris);
+  --color-accent-secondary-bg     : var(--raw-verdigris-light);
+  --color-accent-secondary-border : #8ABCAC;
+  --color-accent-secondary-text   : var(--raw-verdigris-text-light);
+  --color-accent-azure            : var(--raw-azure);
+  --color-accent-azure-bg         : var(--raw-azure-light);
+  --color-accent-azure-border     : #9DB2CC;
+  --color-accent-azure-text       : var(--raw-azure-text-light);
+  --color-accent-teal             : var(--raw-teal);
+  --color-accent-teal-bg          : var(--raw-teal-light);
+  --color-accent-teal-border      : #92BFC6;
+  --color-accent-teal-text        : var(--raw-teal-text-light);
+  --color-accent-amethyst         : var(--raw-amethyst);
+  --color-accent-amethyst-bg      : var(--raw-amethyst-light);
+  --color-accent-amethyst-border  : #B7A9D2;
+  --color-accent-amethyst-text    : var(--raw-amethyst-text-light);
+  --color-accent-garnet           : var(--raw-garnet);
+  --color-accent-garnet-bg        : var(--raw-garnet-light);
+  --color-accent-garnet-border    : #CFA0AE;
+  --color-accent-garnet-text      : var(--raw-garnet-text-light);
+
+  /* Status */
+  --color-status-live    : var(--raw-azure-text-light);
+  --color-status-online  : #4A6658;
+  --color-status-warning : #7E5A30;
+  --color-status-error   : #A32D2D;
+
+  /* Shadows — warm-tinted, never pure black */
+  --shadow-sm : 0 1px 2px rgba(28, 28, 27, 0.08);
+  --shadow-md : 0 2px 8px rgba(28, 28, 27, 0.10);
+  --shadow-lg : 0 8px 24px rgba(28, 28, 27, 0.14);
+
+  /* Theme-scoped component values */
+  --card-active-bg     : #EAE0D4;
+  --btn-primary-bg     : var(--raw-patina-text-light);
+  --btn-primary-text   : var(--raw-linen);
+  --input-border-color : #807C76;
+  }
+}
+
+
+/* ============================================================
+   TYPOGRAPHY SCALE
+   ============================================================ */
+
+:root {
+  /* Font sizes — rem so user font-size preferences are respected */
+  --text-xs   : 0.6875rem; /* 11px — minimum size in the system */
+  --text-sm   : 0.75rem; /* 12px */
+  --text-base : 0.8125rem; /* 13px — code, dense UI */
+  --text-md   : 0.875rem; /* 14px — body text default */
+  --text-lg   : 1rem; /* 16px */
+  --text-xl   : 1.125rem; /* 18px */
+  --text-2xl  : 1.375rem; /* 22px */
+  --text-3xl  : 1.75rem; /* 28px */
+  --text-4xl  : 2.25rem; /* 36px */
+  --text-5xl  : 3rem; /* 48px */
+
+  /* Font weights */
+  --weight-light   : 300;
+  --weight-regular : 400;
+  --weight-medium  : 500;
+  --weight-bold    : 700;
+  --weight-black   : 800;
+
+  /* Line heights */
+  --leading-tight  : 1.1;
+  --leading-snug   : 1.3;
+  --leading-normal : 1.6;
+  --leading-loose  : 1.8;
+
+  /* Letter spacing */
+  --tracking-tight  : -0.01em;
+  --tracking-normal : 0em;
+  --tracking-wide   : 0.06em;
+  --tracking-wider  : 0.1em;
+  --tracking-widest : 0.18em;
+}
+
+
+/* ============================================================
+   SPACING
+   ============================================================ */
+
+:root {
+  --space-1  : 4px;
+  --space-2  : 8px;
+  --space-3  : 12px;
+  --space-4  : 16px;
+  --space-5  : 20px;
+  --space-6  : 24px;
+  --space-8  : 32px;
+  --space-10 : 40px;
+  --space-12 : 48px;
+  --space-16 : 64px;
+}
+
+
+/* ============================================================
+   BORDER RADIUS
+   ============================================================ */
+
+:root {
+  --radius-sm   : 3px; /* Buttons, badges, tight elements */
+  --radius-md   : 6px; /* Cards, inputs */
+  --radius-lg   : 10px; /* Modals, panels, shell */
+  --radius-full : 9999px; /* Pills */
+}
+
+
+/* ============================================================
+   BORDER WIDTHS
+   ============================================================ */
+
+:root {
+  --border-width-hairline : 0.5px; /* Opt-in, hi-dpi displays only — renders as 0 or 1px at 1× */
+  --border-width-default  : 1px;
+  --border-width-accent   : 1px;
+  --border-width-strong   : 2px;
+}
+
+
+/* ============================================================
+   MOTION
+   ============================================================ */
+
+:root {
+  /* Durations */
+  --duration-fast : 120ms; /* Hover, focus, small state changes */
+  --duration-base : 200ms; /* Most transitions */
+  --duration-slow : 320ms; /* Panels, modals, theme switch */
+
+  /* Easings */
+  --ease-standard : cubic-bezier(0.4, 0, 0.2, 1); /* Default — mechanical, purposeful */
+  --ease-out      : cubic-bezier(0.16, 1, 0.3, 1); /* Entrances — settles like metal cooling */
+  --ease-in       : cubic-bezier(0.7, 0, 0.84, 0); /* Exits */
+
+  /* Recipes — duration + easing, ready for transition/animation shorthands */
+  --motion-transition      : var(--duration-base) var(--ease-standard); /* Default state change — hovers, toggles, theme */
+  --motion-transition-fast : var(--duration-fast) var(--ease-standard); /* Quick feedback — focus, small controls */
+  --motion-enter           : var(--duration-base) var(--ease-out) both; /* Entrances — settle like cooling metal */
+  --motion-exit            : var(--duration-fast) var(--ease-in) both; /* Exits */
+  --motion-emphasis        : var(--duration-slow) var(--ease-standard) both; /* Deliberate, weighty motion — panels, modals */
+}
+
+
+/* ============================================================
+   Z-INDEX
+   ============================================================ */
+
+:root {
+  --z-base     : 0;
+  --z-sticky   : 100;
+  --z-dropdown : 200;
+  --z-overlay  : 300;
+  --z-modal    : 400;
+  --z-toast    : 500;
+}
+
+
+/* ============================================================
+   TYPOGRAPHY ROLES
+   ============================================================ */
+
+:root {
+  /* display — Cormorant Garamond — the soul of the system */
+  --type-display-font    : var(--font-display);
+  --type-display-size    : var(--text-4xl);
+  --type-display-weight  : var(--weight-light);
+  --type-display-style   : italic;
+  --type-display-leading : var(--leading-tight);
+
+  /* heading — Syne */
+  --type-heading-font     : var(--font-interface);
+  --type-heading-size     : var(--text-xl);
+  --type-heading-weight   : var(--weight-bold);
+  --type-heading-leading  : var(--leading-snug);
+  --type-heading-tracking : var(--tracking-tight);
+
+  /* label — Syne — UI labels */
+  --type-label-font      : var(--font-interface);
+  --type-label-size      : var(--text-sm);
+  --type-label-weight    : var(--weight-medium);
+  --type-label-tracking  : var(--tracking-widest);
+  --type-label-transform : uppercase;
+
+  /* body — Syne */
+  --type-body-font    : var(--font-interface);
+  --type-body-size    : var(--text-md);
+  --type-body-weight  : var(--weight-regular);
+  --type-body-leading : var(--leading-normal);
+
+  /* caption — DM Mono */
+  --type-caption-font     : var(--font-technical);
+  --type-caption-size     : var(--text-xs);
+  --type-caption-weight   : var(--weight-regular);
+  --type-caption-tracking : var(--tracking-wider);
+
+  /* data — DM Mono — data / metric */
+  --type-data-font    : var(--font-technical);
+  --type-data-size    : var(--text-md);
+  --type-data-weight  : var(--weight-light);
+  --type-data-leading : var(--leading-snug);
+
+  /* code — DM Mono */
+  --type-code-font    : var(--font-technical);
+  --type-code-size    : var(--text-base);
+  --type-code-weight  : var(--weight-regular);
+  --type-code-leading : var(--leading-loose);
+}
+
+
+/* ============================================================
+   BORDERS
+   ============================================================ */
+
+:root {
+  --border-default : var(--border-width-default) solid var(--color-border-default);
+  --border-subtle  : var(--border-width-default) solid var(--color-border-subtle);
+  --border-strong  : var(--border-width-default) solid var(--color-border-strong);
+  --border-accent  : var(--border-width-accent) solid var(--color-accent-primary);
+}
+
+
+/* ============================================================
+   FOCUS
+   ============================================================ */
+
+:root {
+  --focus-ring-width  : 2px;
+  --focus-ring-offset : 2px;
+  --focus-ring        : var(--focus-ring-width) solid var(--color-accent-primary);
+}
+
+
+/* ============================================================
+   COMPONENT TOKENS
+   ============================================================ */
+
+:root {
+  /* sidebar */
+  --sidebar-width  : 200px;
+  --sidebar-bg     : var(--color-bg-surface);
+  --sidebar-border : var(--border-subtle);
+
+  /* topbar */
+  --topbar-bg     : var(--color-bg-sunken);
+  --topbar-height : 40px;
+
+  /* statusbar */
+  --statusbar-height : 28px;
+
+  /* card */
+  --card-bg            : var(--color-bg-surface);
+  --card-border        : var(--border-default);
+  --card-radius        : var(--radius-md);
+  --card-padding       : var(--space-3) var(--space-4);
+  --card-active-border : var(--color-accent-primary-border);
+  --card-active-accent : var(--color-accent-primary);
+
+  /* badge */
+  --badge-font     : var(--font-technical);
+  --badge-size     : var(--text-xs);
+  --badge-padding  : 3px 8px;
+  --badge-radius   : var(--radius-sm);
+  --badge-tracking : var(--tracking-wider);
+
+  /* btn */
+  --btn-font     : var(--font-interface);
+  --btn-size     : var(--text-sm);
+  --btn-weight   : var(--weight-medium);
+  --btn-tracking : var(--tracking-wider);
+  --btn-padding  : 7px 14px;
+  --btn-radius   : var(--radius-sm);
+
+  /* input */
+  --input-font    : var(--font-technical);
+  --input-size    : var(--text-sm);
+  --input-padding : 7px 10px;
+  --input-radius  : var(--radius-sm);
+  --input-border  : var(--border-width-default) solid var(--input-border-color);
+
+  /* nav */
+  --nav-font     : var(--font-interface);
+  --nav-size     : var(--text-sm);
+  --nav-tracking : var(--tracking-wide);
+  --nav-padding  : 7px 16px;
+
+  /* section-label */
+  --section-label-font      : var(--font-technical);
+  --section-label-size      : var(--text-xs);
+  --section-label-tracking  : var(--tracking-widest);
+  --section-label-transform : uppercase;
+  --section-label-color     : var(--color-text-ghost);
+}
+
+
+/* ============================================================
+   MOTION — reduced motion
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+  /* Zeroed durations already make recipe-driven motion instant; this also
+     stops any infinite keyframe animation (e.g. the live-status pulse). */
+  [class*="k-animate-"] { animation: none; }
+}
+
+
+/* ============================================================
+   KINETICS — keyframes + motion utilities
+   ============================================================ */
+
+/* A system named Kinetika ships a motion language, not just timing tokens.
+   Each utility composes a keyframe with a --motion-* recipe, so durations
+   stay token-driven and reduced-motion neutralizes them automatically. */
+@keyframes k-rise   { from { opacity: 0; transform: translateY(8px);   } to { opacity: 1; transform: none; } }
+@keyframes k-fade   { from { opacity: 0;                                } to { opacity: 1;                  } }
+@keyframes k-settle { from { opacity: 0; transform: scale(0.98);        } to { opacity: 1; transform: none; } }
+@keyframes k-slide  { from { opacity: 0; transform: translateX(-12px);  } to { opacity: 1; transform: none; } }
+@keyframes k-pulse  { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+
+.k-animate-rise   { animation: k-rise   var(--motion-enter); }
+.k-animate-fade   { animation: k-fade   var(--motion-enter); }
+.k-animate-settle { animation: k-settle var(--motion-emphasis); }
+.k-animate-slide  { animation: k-slide  var(--motion-enter); }
+/* Continuous, subtle — for live-status indicators. Off under reduced motion. */
+.k-animate-pulse  { animation: k-pulse calc(var(--duration-slow) * 5) var(--ease-standard) infinite; }
+
+/* Transition helpers — opt-in. Pair .k-lift with a hover to get the chip lift. */
+.k-transition { transition: all var(--motion-transition); }
+.k-lift {
+  transition: transform var(--motion-transition), border-color var(--motion-transition);
+}
+.k-lift:hover { transform: translateY(-4px); }
+
+
+/* ============================================================
+   UTILITY CLASSES (optional, opt-in)
+   ============================================================ */
+
+.k-label {
+  font-family   : var(--section-label-font);
+  font-size     : var(--section-label-size);
+  letter-spacing: var(--section-label-tracking);
+  text-transform: var(--section-label-transform);
+  color         : var(--section-label-color);
+}
+
+.k-display {
+  font-family  : var(--type-display-font);
+  font-size    : var(--type-display-size);
+  font-weight  : var(--type-display-weight);
+  font-style   : var(--type-display-style);
+  line-height  : var(--type-display-leading);
+  color        : var(--color-text-primary);
+}
+
+.k-data {
+  font-family : var(--type-data-font);
+  font-size   : var(--type-data-size);
+  font-weight : var(--type-data-weight);
+  color       : var(--color-text-secondary);
+}
+
+.k-mono {
+  font-family: var(--font-technical);
+  font-size  : var(--type-code-size);
+  line-height: var(--type-code-leading);
+}
+
+.k-btn-primary {
+  background    : var(--btn-primary-bg);
+  color         : var(--btn-primary-text);
+  border        : none;
+  font-family   : var(--btn-font);
+  font-size     : var(--btn-size);
+  font-weight   : var(--btn-weight);
+  letter-spacing: var(--btn-tracking);
+  padding       : var(--btn-padding);
+  border-radius : var(--btn-radius);
+  text-transform: uppercase;
+}
+
+.k-badge-patina {
+  background    : var(--color-accent-primary-bg);
+  color         : var(--color-accent-primary-text);
+  border        : var(--border-width-default) solid var(--color-accent-primary-border);
+  font-family   : var(--badge-font);
+  font-size     : var(--badge-size);
+  padding       : var(--badge-padding);
+  border-radius : var(--badge-radius);
+  letter-spacing: var(--badge-tracking);
+  text-transform: uppercase;
+}
+
+.k-badge-verdigris {
+  background    : var(--color-accent-secondary-bg);
+  color         : var(--color-accent-secondary-text);
+  border        : var(--border-width-default) solid var(--color-accent-secondary-border);
+  font-family   : var(--badge-font);
+  font-size     : var(--badge-size);
+  padding       : var(--badge-padding);
+  border-radius : var(--badge-radius);
+  letter-spacing: var(--badge-tracking);
+  text-transform: uppercase;
+}
+
+/* Extended accent badges — share the badge recipe, swap the accent family */
+.k-badge-azure,
+.k-badge-teal,
+.k-badge-amethyst,
+.k-badge-garnet {
+  font-family   : var(--badge-font);
+  font-size     : var(--badge-size);
+  padding       : var(--badge-padding);
+  border-radius : var(--badge-radius);
+  letter-spacing: var(--badge-tracking);
+  text-transform: uppercase;
+  border        : var(--border-width-default) solid;
+}
+.k-badge-azure    { background: var(--color-accent-azure-bg);    color: var(--color-accent-azure-text);    border-color: var(--color-accent-azure-border); }
+.k-badge-teal     { background: var(--color-accent-teal-bg);     color: var(--color-accent-teal-text);     border-color: var(--color-accent-teal-border); }
+.k-badge-amethyst { background: var(--color-accent-amethyst-bg); color: var(--color-accent-amethyst-text); border-color: var(--color-accent-amethyst-border); }
+.k-badge-garnet   { background: var(--color-accent-garnet-bg);   color: var(--color-accent-garnet-text);   border-color: var(--color-accent-garnet-border); }
+
+.k-focusable:focus-visible {
+  outline       : var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}

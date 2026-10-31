@@ -112,6 +112,8 @@ const topBrand = document.getElementById("topBrand");
 const searchInput = document.getElementById("searchInput");
 const clock = document.getElementById("clock");
 const themeToggle = document.getElementById("themeToggle");
+const menuToggle = document.getElementById("menuToggle");
+const sidebar = document.getElementById("sidebar");
 const eyebrowText = document.getElementById("eyebrowText");
 const titleText = document.getElementById("titleText");
 const modePill = document.getElementById("modePill");
@@ -463,6 +465,10 @@ function renderSidebar() {
   portalBtn.appendChild(portalLabel);
   portalBtn.appendChild(portalCount);
   portalBtn.addEventListener("mouseenter", () => setHighlight(null));
+  portalBtn.addEventListener("click", () => {
+    setHighlight(null);
+    toggleMenu(false);
+  });
   portalLi.appendChild(portalBtn);
   navList.appendChild(portalLi);
 
@@ -485,6 +491,10 @@ function renderSidebar() {
     btn.appendChild(label);
     btn.appendChild(count);
     btn.addEventListener("mouseenter", () => setHighlight(group.title));
+    btn.addEventListener("click", () => {
+      setHighlight(group.title);
+      toggleMenu(false);
+    });
     li.appendChild(btn);
     navList.appendChild(li);
   });
@@ -597,7 +607,7 @@ function normalizeConfig(override) {
 function loadLocalConfig() {
   return new Promise((resolve) => {
     const script = document.createElement("script");
-    script.src = "config.local.js";
+    script.src = "config.local.js?v=" + Date.now();
     script.async = true;
     script.onload = () => resolve();
     script.onerror = () => resolve();
@@ -623,6 +633,31 @@ document.addEventListener("keydown", (event) => {
 if (themeToggle) {
   themeToggle.addEventListener("click", toggleTheme);
 }
+
+function toggleMenu(force) {
+  if (!menuToggle || !sidebar) return;
+  const expanded = typeof force === "boolean" ? force : menuToggle.getAttribute("aria-expanded") !== "true";
+  menuToggle.setAttribute("aria-expanded", String(expanded));
+  sidebar.classList.toggle("menu-open", expanded);
+}
+
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => toggleMenu());
+}
+
+// Close mobile menu on Escape or when clicking outside
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") toggleMenu(false);
+});
+
+document.addEventListener("click", (event) => {
+  if (!sidebar || !menuToggle) return;
+  const isInsideSidebar = sidebar.contains(event.target);
+  const isMenuToggle = menuToggle.contains(event.target);
+  if (!isInsideSidebar && !isMenuToggle) {
+    toggleMenu(false);
+  }
+});
 
 const handleSystemThemeChange = () => {
   if (localStorage.getItem(THEME_STORAGE_KEY)) return;
