@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kinetika — ir0nm0nk Design System Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Syne:wght@400;500;700;800&family=DM+Mono:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+
+  body {
+    background: var(--color-bg-base);
+    color: var(--color-text-primary);
+    font: var(--type-body-weight) var(--type-body-size)/var(--type-body-leading) var(--type-body-font);
+    transition: background var(--duration-slow) var(--ease-standard),
+                color var(--duration-slow) var(--ease-standard);
+    padding: var(--space-8) var(--space-6) var(--space-16);
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: var(--space-4); flex-wrap: wrap; margin-bottom: var(--space-12);
+  }
+  .wordmark { font-size: var(--text-5xl); }
+  .wordmark em { color: var(--color-accent-primary-text); }
+
+  .theme-switch { display: flex; gap: var(--space-1); }
+  .theme-switch button {
+    font-family: var(--btn-font); font-size: var(--btn-size);
+    font-weight: var(--btn-weight); letter-spacing: var(--btn-tracking);
+    text-transform: uppercase; cursor: pointer;
+    padding: var(--btn-padding); border-radius: var(--btn-radius);
+    background: transparent; color: var(--color-text-tertiary);
+    border: var(--border-strong);
+    transition: all var(--duration-fast) var(--ease-standard);
+  }
+  .theme-switch button[aria-pressed="true"] {
+    background: var(--color-accent-primary-bg);
+    color: var(--color-accent-primary-text);
+    border-color: var(--color-accent-primary-border);
+  }
+
+  section { margin-bottom: var(--space-16); }
+  section > .k-label { display: block; margin-bottom: var(--space-4); }
+  h2 {
+    font-family: var(--type-heading-font); font-size: var(--type-heading-size);
+    font-weight: var(--type-heading-weight); line-height: var(--type-heading-leading);
+    letter-spacing: var(--type-heading-tracking); margin-bottom: var(--space-2);
+  }
+  .section-note { color: var(--color-text-tertiary); margin-bottom: var(--space-6); max-width: 64ch; }
+
+  /* --- palette --- */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: var(--space-3); }
+  .swatch {
+    border: var(--border-default); border-radius: var(--card-radius); overflow: hidden;
+    background: var(--color-bg-surface);
+  }
+  .swatch .chip { height: 56px; }
+  .swatch .meta { padding: var(--space-2) var(--space-3); }
+  .swatch .name { font-family: var(--font-interface); font-size: var(--text-sm); font-weight: var(--weight-medium); }
+  .swatch .hex { font-family: var(--font-technical); font-size: var(--text-xs); color: var(--color-text-tertiary); letter-spacing: var(--tracking-wider); text-transform: uppercase; }
+
+  /* --- contrast table --- */
+  table { border-collapse: collapse; width: 100%; }
+  th, td { text-align: left; padding: var(--space-2) var(--space-3); border-bottom: var(--border-subtle); }
+  th { font-family: var(--section-label-font); font-size: var(--section-label-size);
+       letter-spacing: var(--section-label-tracking); text-transform: uppercase;
+       color: var(--color-text-tertiary); font-weight: var(--weight-regular); }
+  td { font-family: var(--font-technical); font-size: var(--text-base); }
+  .ratio-pass { color: var(--color-status-online); }
+  .ratio-fail { color: var(--color-status-error); font-weight: var(--weight-medium); }
+
+  /* --- typography --- */
+  .voice { padding: var(--space-5) 0; border-bottom: var(--border-subtle); }
+  .voice-display { font-family: var(--font-display); font-weight: 300; font-style: italic; font-size: var(--text-3xl); line-height: var(--leading-tight); }
+  .voice-interface { font-family: var(--font-interface); font-weight: 700; font-size: var(--text-2xl); }
+  .voice-technical { font-family: var(--font-technical); font-weight: 300; font-size: var(--text-lg); }
+
+  /* --- components --- */
+  .row { display: flex; gap: var(--space-3); flex-wrap: wrap; align-items: center; }
+  .stack { display: grid; gap: var(--space-4); }
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-4); }
+
+  .card {
+    background: var(--card-bg); border: var(--card-border);
+    border-radius: var(--card-radius); padding: var(--card-padding);
+    transition: border-color var(--duration-fast) var(--ease-standard);
+  }
+  .card.active {
+    background: var(--card-active-bg);
+    border-color: var(--card-active-border);
+    border-top: var(--border-width-accent) solid var(--card-active-accent);
+  }
+  .card h3 { font-family: var(--font-interface); font-size: var(--text-md); font-weight: var(--weight-bold); }
+  .card p { color: var(--color-text-tertiary); font-size: var(--text-sm); margin-top: var(--space-1); }
+  .card .k-data { display: block; margin-top: var(--space-2); }
+
+  .shadow-sm { box-shadow: var(--shadow-sm); }
+  .shadow-md { box-shadow: var(--shadow-md); }
+  .shadow-lg { box-shadow: var(--shadow-lg); }
+
+  .btn {
+    font-family: var(--btn-font); font-size: var(--btn-size); font-weight: var(--btn-weight);
+    letter-spacing: var(--btn-tracking); text-transform: uppercase; cursor: pointer;
+    padding: var(--btn-padding); border-radius: var(--btn-radius);
+    transition: filter var(--duration-fast) var(--ease-standard);
+  }
+  .btn:hover { filter: brightness(1.12); }
+  .btn-primary { background: var(--btn-primary-bg); color: var(--btn-primary-text); border: none; }
+  .btn-secondary { background: transparent; color: var(--color-text-secondary); border: var(--border-strong); }
+
+  input[type="text"] {
+    font-family: var(--input-font); font-size: var(--input-size);
+    padding: var(--input-padding); border-radius: var(--input-radius);
+    border: var(--input-border); background: var(--color-bg-sunken);
+    color: var(--color-text-primary); min-width: 240px;
+  }
+
+  .status { display: inline-flex; align-items: center; gap: var(--space-2);
+            font-family: var(--font-technical); font-size: var(--text-sm);
+            letter-spacing: var(--tracking-wider); text-transform: uppercase; }
+  .dot { width: 8px; height: 8px; border-radius: var(--radius-full); background: currentColor; }
+  .status-live    { color: var(--color-status-live); }
+  .status-online  { color: var(--color-status-online); }
+  .status-warning { color: var(--color-status-warning); }
+  .status-error   { color: var(--color-status-error); }
+
+  nav.demo { width: var(--sidebar-width); background: var(--sidebar-bg);
+             border: var(--sidebar-border); border-radius: var(--radius-md); padding: var(--space-2) 0; }
+  nav.demo a { display: block; font-family: var(--nav-font); font-size: var(--nav-size);
+               letter-spacing: var(--nav-tracking); padding: var(--nav-padding);
+               color: var(--color-text-secondary); text-decoration: none;
+               transition: background var(--duration-fast) var(--ease-standard); }
+  nav.demo a:hover { background: var(--color-bg-elevated); }
+  nav.demo a.current { background: var(--color-bg-elevated); color: var(--color-accent-primary-text); }
+
+  /* --- motion demo --- */
+  .motion-track { display: flex; gap: var(--space-4); flex-wrap: wrap; }
+  .motion-chip {
+    font-family: var(--font-technical); font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wider); text-transform: uppercase;
+    color: var(--color-text-secondary);
+    background: var(--color-bg-surface); border: var(--border-default);
+    border-radius: var(--radius-sm); padding: var(--space-3) var(--space-4);
+    cursor: pointer; user-select: none;
+  }
+  .motion-chip:hover { transform: translateY(-4px); border-color: var(--color-accent-primary-border); }
+  .m-fast { transition: all var(--duration-fast) var(--ease-standard); }
+  .m-base { transition: all var(--duration-base) var(--ease-out); }
+  .m-slow { transition: all var(--duration-slow) var(--ease-out); }
+
+  /* --- animation utility demo --- */
+  .anim-grid { display: flex; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-5); }
+  .anim-cell {
+    font-family: var(--font-technical); font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wider); text-transform: uppercase;
+    color: var(--color-text-secondary);
+    background: var(--color-bg-surface); border: var(--border-default);
+    border-radius: var(--radius-sm); padding: var(--space-3) var(--space-4);
+    min-width: 120px; text-align: center;
+  }
+  .replay {
+    font-family: var(--font-interface); font-size: var(--text-sm); font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wide); text-transform: uppercase;
+    color: var(--color-accent-primary-text);
+    background: none; border: var(--border-strong); border-radius: var(--radius-sm);
+    padding: var(--space-2) var(--space-4); cursor: pointer; margin-top: var(--space-5);
+  }
+  .replay:hover { border-color: var(--color-accent-primary-border); }
+
+  footer { color: var(--color-text-ghost); font-family: var(--font-technical);
+           font-size: var(--text-xs); letter-spacing: var(--tracking-wider); }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <span class="k-label">ir0nm0nk · design system v2.0.0</span>
+    <div class="k-display wordmark">Kinetika <em>preview</em></div>
+  </div>
+  <div class="theme-switch" role="group" aria-label="Theme">
+    <button data-set="system" class="k-focusable">System</button>
+    <button data-set="dark" class="k-focusable">Dark</button>
+    <button data-set="light" class="k-focusable">Light</button>
+  </div>
+</header>
+
+<section>
+  <span class="k-label">01 — Palette</span>
+  <h2>Raw tokens</h2>
+  <p class="section-note">The brand palette. Semantic tokens reference these; in-between neutral shades live only in the semantic layer.</p>
+  <div class="swatches" id="swatches"></div>
+</section>
+
+<section>
+  <span class="k-label">02 — Contrast</span>
+  <h2>Live WCAG audit</h2>
+  <p class="section-note">Computed from the rendered theme, so this table re-audits itself when you switch modes or edit tokens. Body-text roles target 4.5:1, large/UI roles 3:1.</p>
+  <table id="contrast"></table>
+</section>
+
+<section>
+  <span class="k-label">03 — Typography</span>
+  <h2>Three voices, one system</h2>
+  <div class="voice">
+    <span class="k-label">display · cormorant garamond</span>
+    <p class="voice-display">Oxidized, not polished — materials show their age.</p>
+  </div>
+  <div class="voice">
+    <span class="k-label">interface · syne</span>
+    <p class="voice-interface">Nothing is hidden. Structure is the design.</p>
+  </div>
+  <div class="voice">
+    <span class="k-label">technical · dm mono</span>
+    <p class="voice-technical">$ systemctl status kinetika — active (running)</p>
+  </div>
+</section>
+
+<section>
+  <span class="k-label">04 — Status</span>
+  <h2>System states</h2>
+  <div class="row">
+    <span class="status status-live"><span class="dot"></span>live</span>
+    <span class="status status-online"><span class="dot"></span>online</span>
+    <span class="status status-warning"><span class="dot"></span>warning</span>
+    <span class="status status-error"><span class="dot"></span>error</span>
+    <span class="k-badge-patina">patina</span>
+    <span class="k-badge-verdigris">verdigris</span>
+    <span class="k-badge-azure">azure</span>
+    <span class="k-badge-teal">teal</span>
+    <span class="k-badge-amethyst">amethyst</span>
+    <span class="k-badge-garnet">garnet</span>
+  </div>
+</section>
+
+<section>
+  <span class="k-label">05 — Surfaces</span>
+  <h2>Cards &amp; elevation</h2>
+  <div class="cols">
+    <div class="card shadow-sm">
+      <h3>ir0nm0nk</h3>
+      <p>Edge compute node — Proxmox host</p>
+      <span class="k-data">222 · dual xeon · rtx 3060</span>
+    </div>
+    <div class="card active shadow-md">
+      <h3>Zephyr00t</h3>
+      <p>Workstation — active card state</p>
+      <span class="k-data">r9 6900hs · rx 6800s</span>
+    </div>
+    <div class="card shadow-lg">
+      <h3>Kost HQ</h3>
+      <p>Property management — shadow-lg</p>
+      <span class="k-data">baileys · node.js</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="k-label">06 — Controls</span>
+  <h2>Buttons, inputs, navigation</h2>
+  <div class="stack">
+    <div class="row">
+      <button class="btn btn-primary k-focusable">Deploy node</button>
+      <button class="btn btn-secondary k-focusable">Inspect</button>
+      <input type="text" class="k-focusable" placeholder="ssh ir0nm0nk.local" aria-label="demo input">
+    </div>
+    <p class="section-note">Tab through the controls to see the focus ring (<code class="k-mono">--focus-ring</code>).</p>
+    <nav class="demo" aria-label="demo nav">
+      <span class="k-label" style="padding: var(--nav-padding); display:block;">menu</span>
+      <a href="#" class="current">Overview</a>
+      <a href="#">Components</a>
+      <a href="#">Tokens</a>
+      <a href="#">Motion</a>
+      <a href="#">Settings</a>
+    </nav>
+  </div>
+</section>
+
+<section>
+  <span class="k-label">07 — Motion</span>
+  <h2>Kinetics</h2>
+  <p class="section-note">Hover the chips. Durations and easings are tokens; everything honors <code class="k-mono">prefers-reduced-motion</code>.</p>
+  <div class="motion-track">
+    <div class="motion-chip m-fast">fast · 120ms · standard</div>
+    <div class="motion-chip m-base">base · 200ms · ease-out</div>
+    <div class="motion-chip m-slow">slow · 320ms · ease-out</div>
+  </div>
+
+  <p class="section-note" style="margin-top:var(--space-6)">Motion utilities — each composes a keyframe with a <code class="k-mono">--motion-*</code> recipe. Hover the cells to feel <code class="k-mono">.k-lift</code>; press Replay to re-run the entrances.</p>
+  <div class="anim-grid" id="animGrid">
+    <div class="anim-cell k-lift k-animate-rise">.k-animate-rise</div>
+    <div class="anim-cell k-lift k-animate-fade">.k-animate-fade</div>
+    <div class="anim-cell k-lift k-animate-settle">.k-animate-settle</div>
+    <div class="anim-cell k-lift k-animate-slide">.k-animate-slide</div>
+    <div class="anim-cell k-animate-pulse">.k-animate-pulse</div>
+  </div>
+  <button class="replay" id="replayMotion">↻ Replay</button>
+</section>
+
+<footer>built by hand · honest by default · tokens.json → build-tokens.mjs → tokens.css</footer>
+
+<script>
+  /* ---- theme switch ---- */
+  const root = document.documentElement;
+  const buttons = document.querySelectorAll('.theme-switch button');
+  function setTheme(mode) {
+    if (mode === 'system') delete root.dataset.theme;
+    else root.dataset.theme = mode;
+    buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.set === mode)));
+    requestAnimationFrame(render);
+  }
+  buttons.forEach(b => b.addEventListener('click', () => setTheme(b.dataset.set)));
+
+  /* ---- motion replay: re-trigger the entrance animations ---- */
+  const replayBtn = document.getElementById('replayMotion');
+  if (replayBtn) {
+    replayBtn.addEventListener('click', () => {
+      document.querySelectorAll('#animGrid [class*="k-animate-"]').forEach(el => {
+        const prev = el.style.animation;
+        el.style.animation = 'none';
+        void el.offsetWidth;          // force reflow so the animation restarts
+        el.style.animation = prev;
+      });
+    });
+  }
+
+  /* ---- token rendering ---- */
+  const RAW = ['linen','cloud-dancer','pale-alloy','iron-mist','graphite','ash','forge','coal',
+    'ember','void','soot','patina','patina-bright','patina-deep','patina-mid','patina-light',
+    'patina-text-light','verdigris','verdigris-bright','verdigris-deep','verdigris-mid',
+    'verdigris-light','verdigris-text-light','copper','amber','rust',
+    'azure','azure-bright','azure-text-light','teal','teal-bright','teal-text-light',
+    'amethyst','amethyst-bright','amethyst-text-light','garnet','garnet-bright','garnet-text-light'];
+
+  // [token, target ratio] — mirrors the checks in build-tokens.mjs
+  const CHECKS = [
+    ['text-primary', 4.5], ['text-secondary', 4.5], ['text-tertiary', 4.5],
+    ['accent-primary-text', 4.5], ['accent-secondary-text', 4.5],
+    ['accent-azure-text', 4.5], ['accent-teal-text', 4.5],
+    ['accent-amethyst-text', 4.5], ['accent-garnet-text', 4.5],
+    ['status-live', 4.5], ['status-warning', 4.5], ['status-error', 4.5],
+    ['status-online', 3.0], ['accent-primary', 3.0], ['accent-secondary', 3.0],
+    ['accent-azure', 3.0], ['accent-teal', 3.0],
+    ['accent-amethyst', 3.0], ['accent-garnet', 3.0],
+  ];
+
+  const probe = document.createElement('div');
+  probe.style.display = 'none';
+  document.body.appendChild(probe);
+
+  function resolve(name) {           // CSS var → [r,g,b]
+    probe.style.color = `var(${name})`;
+    const m = getComputedStyle(probe).color.match(/\d+/g);
+    return m ? m.slice(0, 3).map(Number) : [0, 0, 0];
+  }
+  const toHex = (rgb) => '#' + rgb.map(c => c.toString(16).padStart(2, '0')).join('').toUpperCase();
+  function luminance([r, g, b]) {
+    const f = c => { c /= 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; };
+    return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+  }
+  function ratio(a, b) {
+    const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+    return (hi + 0.05) / (lo + 0.05);
+  }
+
+  function render() {
+    document.getElementById('swatches').innerHTML = RAW.map(n => `
+      <div class="swatch">
+        <div class="chip" style="background: var(--raw-${n})"></div>
+        <div class="meta">
+          <div class="name">${n}</div>
+          <div class="hex">${toHex(resolve(`--raw-${n}`))}</div>
+        </div>
+      </div>`).join('');
+
+    const base = resolve('--color-bg-base');
+    const surface = resolve('--color-bg-surface');
+    document.getElementById('contrast').innerHTML =
+      '<tr><th>token</th><th>on bg-base</th><th>on bg-surface</th><th>target</th></tr>' +
+      CHECKS.map(([name, target]) => {
+        const fg = resolve(`--color-${name}`);
+        const cell = r => `<td class="${r >= target ? 'ratio-pass' : 'ratio-fail'}">${r.toFixed(2)}:1</td>`;
+        return `<tr><td style="color: var(--color-${name})">--color-${name}</td>${cell(ratio(fg, base))}${cell(ratio(fg, surface))}<td>${target}:1</td></tr>`;
+      }).join('');
+  }
+
+  setTheme('system');
+  matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => requestAnimationFrame(render));
+</script>
+</body>
+</html>

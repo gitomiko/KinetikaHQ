@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design System — Kinetika</title>
+  <meta name="description" content="The Kinetika Design System (codename ir0nm0nk): philosophy, color, typography, spacing, motion, and components — all driven by tokens.json through a WCAG AA contrast gate.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Syne:wght@400;500;700;800&family=DM+Mono:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="/assets/tokens.css">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/brand.css">
+  <script src="/assets/site.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/"><span class="mark" aria-hidden="true"></span> Kinetika</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav">≡</button>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a href="/docs/">Docs</a>
+        <a href="/portfolio/">Portfolio</a>
+        <a href="/blog/">Blog</a>
+        <a href="https://github.com/gitomiko/KinetikaOS">Source</a>
+        <button class="theme-toggle" aria-label="Switch theme">☀</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-head">
+      <div class="wrap">
+        <p class="eyebrow">Kinetika Design System · v2.5.0 · codename ir0nm0nk</p>
+        <h1>The design system</h1>
+        <p class="lead">Oxidized, honest, accessible. <code>tokens.json</code> is the source of truth — machine-readable and AX-friendly — and <code>tokens.css</code> is generated from it through a WCAG AA contrast gate (122 contrast checks across both themes). Try the theme toggle, top right.</p>
+      </div>
+    </div>
+
+    <!-- PHILOSOPHY -->
+    <section class="section section--tight" id="philosophy">
+      <div class="wrap wrap--narrow">
+        <p class="eyebrow">Foundations</p>
+        <h2>Warmth, not coolness</h2>
+        <p style="color: var(--color-text-secondary)">Warm-dark by default. Light mode sits on an <strong>Alloy White</strong> base — a disciplined warm off-white, not a cool-grey inversion. Copper oxidizes to patina; iron rusts to verdigris. The palette is named after what metals actually become.</p>
+      </div>
+    </section>
+
+    <!-- COLOR -->
+    <section class="section" id="color">
+      <div class="wrap">
+        <p class="eyebrow">Color</p>
+        <h2>Surfaces &amp; text</h2>
+        <div class="swatches" style="margin-bottom: var(--space-10)">
+          <div class="swatch"><div class="chip" style="background: var(--color-bg-base)"></div><div class="label"><b>bg-base</b>background</div></div>
+          <div class="swatch"><div class="chip" style="background: var(--color-bg-surface)"></div><div class="label"><b>bg-surface</b>cards, panels</div></div>
+          <div class="swatch"><div class="chip" style="background: var(--color-bg-elevated)"></div><div class="label"><b>bg-elevated</b>raised</div></div>
+          <div class="swatch"><div class="chip" style="background: var(--color-bg-sunken)"></div><div class="label"><b>bg-sunken</b>deepest</div></div>
+          <div class="swatch"><div class="chip" style="background: var(--color-text-primary)"></div><div class="label"><b>text-primary</b>body</div></div>
+          <div class="swatch"><div class="chip" style="background: var(--color-text-secondary)"></div><div class="label"><b>text-secondary</b>muted</div></div>
+        </div>
+
+        <h3>Mineral accents</h3>
+        <p style="color: var(--color-text-secondary); max-width: 62ch">Each accent is an oxidation product: patina (copper), verdigris (full patina), azurite blue, chrysocolla teal, manganese violet, garnet rose. Every family meets 4.5:1 for text on its paired background.</p>
+        <div class="swatches">
+          <div class="swatch"><div class="chip" style="background: var(--color-accent-primary)"></div><div class="label"><b>patina</b>primary</div></div>
+          <div class="swatch"><div class="chip" style="background: var(--color-accent-secondary)"></div><div class="label"><b>verdigris</b>secondary</div></div>
+          <div class="swatch"><div class="chip" style="background: var(--color-accent-azure)"></div><div class="label"><b>azure</b>azurite</div></div>
+          <div class="swatch"><div class="chip" style="background: var(--color-accent-teal)"></div><div class="label"><b>teal</b>chrysocolla</div></div>
+          <div class="swatch"><div class="chip" style="background: var(--color-accent-amethyst)"></div><div class="label"><b>amethyst</b>manganese</div></div>
+          <div class="swatch"><div class="chip" style="background: var(--color-accent-garnet)"></div><div class="label"><b>garnet</b>rose</div></div>
+        </div>
+
+        <h3 style="margin-top: var(--space-10)">Status</h3>
+        <div class="swatches">
+          <div class="swatch"><div class="chip" style="background: var(--color-status-live)"></div><div class="label"><b>live</b>azure</div></div>
+          <div class="swatch"><div class="chip" style="background: var(--color-status-online)"></div><div class="label"><b>online</b>verdigris</div></div>
+          <div class="swatch"><div class="chip" style="background: var(--color-status-warning)"></div><div class="label"><b>warning</b>amber</div></div>
+          <div class="swatch"><div class="chip" style="background: var(--color-status-error)"></div><div class="label"><b>error</b>rust</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPOGRAPHY -->
+    <section class="section" id="type">
+      <div class="wrap">
+        <p class="eyebrow">Typography</p>
+        <h2>Three voices, one system</h2>
+        <div class="type-row">
+          <p class="name">Cormorant Garamond — display · the soul of the system</p>
+          <p style="font-family: var(--font-display); font-size: var(--text-4xl); margin: 0; color: var(--color-text-primary)">Honest by default</p>
+        </div>
+        <div class="type-row">
+          <p class="name">Syne — interface · the structure of the system</p>
+          <p style="font-family: var(--font-interface); font-size: var(--text-2xl); font-weight: 700; margin: 0; color: var(--color-text-primary)">Interface labels &amp; structure</p>
+        </div>
+        <div class="type-row">
+          <p class="name">DM Mono — technical · the honesty of the system</p>
+          <p style="font-family: var(--font-technical); font-size: var(--text-lg); margin: 0; color: var(--color-text-secondary)">const honest = true; // 0123456789</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPACING -->
+    <section class="section" id="spacing">
+      <div class="wrap">
+        <p class="eyebrow">Spacing</p>
+        <h2>An 8-point rhythm</h2>
+        <div class="scale">
+          <div class="box" style="width: var(--space-1); height: var(--space-1)"><span>1</span></div>
+          <div class="box" style="width: var(--space-2); height: var(--space-2)"><span>2</span></div>
+          <div class="box" style="width: var(--space-3); height: var(--space-3)"><span>3</span></div>
+          <div class="box" style="width: var(--space-4); height: var(--space-4)"><span>4</span></div>
+          <div class="box" style="width: var(--space-6); height: var(--space-6)"><span>6</span></div>
+          <div class="box" style="width: var(--space-8); height: var(--space-8)"><span>8</span></div>
+          <div class="box" style="width: var(--space-12); height: var(--space-12)"><span>12</span></div>
+          <div class="box" style="width: var(--space-16); height: var(--space-16)"><span>16</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOTION -->
+    <section class="section" id="motion">
+      <div class="wrap">
+        <p class="eyebrow">Motion</p>
+        <h2>Settle like cooling metal</h2>
+        <p style="color: var(--color-text-secondary); max-width: 62ch">Entrances settle, they don't bounce. Every utility composes a keyframe with a <code>--motion-*</code> recipe, and <code>prefers-reduced-motion</code> turns them off entirely.</p>
+        <div class="grid grid--4" style="margin-top: var(--space-6)">
+          <div class="card k-animate-rise"><span class="meta">k-animate-rise</span></div>
+          <div class="card k-animate-fade"><span class="meta">k-animate-fade</span></div>
+          <div class="card k-animate-settle"><span class="meta">k-animate-settle</span></div>
+          <div class="card k-animate-slide"><span class="meta">k-animate-slide</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPONENTS -->
+    <section class="section" id="components">
+      <div class="wrap">
+        <p class="eyebrow">Components</p>
+        <h2>Built on the tokens</h2>
+        <p style="color: var(--color-text-secondary); max-width: 62ch">The React component layer (<code>Button</code>, <code>Badge</code>, <code>Card</code>) registers on <code>window.Kinetika</code> and reuses these same token-bound utility classes. Below is the plain-CSS expression.</p>
+        <div class="card" style="margin-top: var(--space-6); display: flex; gap: var(--space-4); flex-wrap: wrap; align-items: center">
+          <button class="btn btn-primary">Primary</button>
+          <button class="btn btn-ghost">Ghost</button>
+          <span class="k-badge-patina">Patina</span>
+          <span class="k-badge-verdigris">Verdigris</span>
+          <span class="k-badge-azure">Azure</span>
+          <span class="k-badge-teal">Teal</span>
+          <span class="k-badge-amethyst">Amethyst</span>
+          <span class="k-badge-garnet">Garnet</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="wrap wrap--narrow">
+        <p style="color: var(--color-text-secondary)">Full token reference and source live in the repo. <code>tokens.json</code> → <code>build-tokens.mjs</code> → <code>tokens.css</code>, gated on WCAG AA.</p>
+        <a class="btn btn-ghost" href="https://github.com/gitomiko/KinetikaOS">View source</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="cols">
+        <div><a class="footer-lockup" href="/" aria-label="Kinetika home"><span class="footer-symbol" aria-hidden="true"></span><span class="footer-wordmark" aria-hidden="true"></span></a><p class="meta" style="margin-top: var(--space-4)">Built by hand. Honest by default.</p></div>
+        <div><h4>Explore</h4><a href="/docs/">Design System</a><a href="/portfolio/">Portfolio</a><a href="/blog/">Blog</a></div>
+        <div><h4>Build</h4><a href="https://github.com/gitomiko/KinetikaOS">KinetikaOS</a><a href="https://github.com/gitomiko/KinetikaOS">Source on GitHub</a></div>
+      </div>
+      <p class="colophon">© <span data-year>2026</span> Wak Gito · Kinetika. Design system released CC0. Self-hosted, hand-built.</p>
+    </div>
+  </footer>
+</body>
+</html>

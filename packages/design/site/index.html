@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kinetika — Built by hand. Honest by default.</title>
+  <meta name="description" content="Kinetika is the umbrella over a self-hosted personal computing ecosystem — a homelab, the apps on top of it, a design system, and an OS. Every layer can be understood, replaced, and developed yourself.">
+  <meta name="color-scheme" content="light dark">
+
+  <meta property="og:title" content="Kinetika — Built by hand. Honest by default.">
+  <meta property="og:description" content="The umbrella over a self-hosted personal computing ecosystem. Nothing hidden.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kinetika.id/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Syne:wght@400;500;700;800&family=DM+Mono:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="/assets/tokens.css">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/brand.css">
+  <script src="/assets/site.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/"><span class="mark" aria-hidden="true"></span> Kinetika</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav">≡</button>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#stack">Stack</a>
+        <a href="#projects">Projects</a>
+        <a href="/docs/">Design System</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/gitomiko">GitHub ↗</a>
+        <button class="theme-toggle" aria-label="Switch theme">☀</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="p-hero">
+      <div class="wrap">
+        <!-- build:hero -->
+        <div class="hero-main">
+          <span class="chip"><span class="dot dot--live" aria-hidden="true"></span>Self-hosted · Yogyakarta, Indonesia · UTC+7</span>
+          <div class="hero-symbol"><img src="/assets/kinetika-logo.png" alt="Kinetika symbol" width="1254" height="1254" fetchpriority="high"></div>
+          <h1 class="name">People.<br>Ideas.<br>Systems.<span class="hero-caret" aria-hidden="true"></span></h1>
+          <div class="hero-wordmark"><img src="/assets/kinetika-logo.png" alt="Kinetika" width="1254" height="1254"></div>
+          <p class="headline"><span class="accent">Built by hand.</span> <span class="plain">Honest by default.</span></p>
+        </div>
+    <!-- /build:hero -->
+        <div class="role-toggles" role="tablist" aria-label="Ecosystem layers">
+          <button role="tab" aria-selected="true">Self-hosted infrastructure</button>
+          <span class="sep" aria-hidden="true">—</span>
+          <button role="tab" aria-selected="false">Software &amp; automation</button>
+          <span class="sep" aria-hidden="true">—</span>
+          <button role="tab" aria-selected="false">Design system &amp; OS</button>
+        </div>
+        <div class="hero-foot">
+          <a class="view-work" href="#projects">View work</a>
+          <span class="scroll-hint">Scroll</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 ABOUT -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="idx">01 — About</span>
+          <span class="rule" aria-hidden="true"></span>
+        </div>
+        <h2 style="font-size: var(--text-4xl); max-width: 18ch">One ecosystem, every layer <span style="color: var(--color-accent-primary-text)">knowable</span></h2>
+        <p class="lead" style="margin-top: var(--space-5)">Kinetika is one person's computing ecosystem, built from the ground up. The point isn't minimalism — it's that nothing is hidden. Every layer can be opened, read, and replaced.</p>
+        <div class="about-blocks">
+          <div class="blk">
+            <p class="role">By principle</p>
+            <h3>Materials show their age</h3>
+            <p>Copper oxidizes, iron rusts — that's character, not failure. The palette, the wear, the seams are all on purpose. An honest system doesn't pretend to be new.</p>
+          </div>
+          <div class="blk">
+            <p class="role">By practice</p>
+            <h3>Nothing is hidden</h3>
+            <p>The structure <em>is</em> the design. Configs live in the repo, services run where I can see them, and the homelab exposes itself rather than abstracting itself away.</p>
+          </div>
+          <div class="blk">
+            <p class="role">By temperament</p>
+            <h3>DIY, and built for agents</h3>
+            <p>Dependency is a choice, not a requirement. And agents are first-class users here — the <strong>AX</strong> (Agent Experience) layer means machine-readable tokens and honest interfaces, for humans and machines alike.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 STACK -->
+    <section class="section" id="stack">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="idx">02 — Stack</span>
+          <span class="rule" aria-hidden="true"></span>
+        </div>
+        <h2 style="font-size: var(--text-4xl)">What it runs on</h2>
+        <div class="stack-explore" style="margin-top: var(--space-6)">
+          <!-- build:exploring -->
+          <span class="lbl">Currently exploring</span>
+          <span class="tag">Local AI · ComfyUI</span>
+          <span class="tag">KinetikaOS</span>
+          <span class="tag">AX tooling</span>
+          <span class="tag">Gitea Actions CI</span>
+    <!-- /build:exploring -->
+        </div>
+        <div class="stack-grid">
+          <div>
+            <h3>Infrastructure</h3>
+            <ul>
+              <li>Proxmox</li><li>Docker</li><li>Nginx Proxy Manager</li><li>Cloudflare Tunnel</li><li>Authelia</li><li>AdGuard</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Apps &amp; Automation</h3>
+            <ul>
+              <li>Node.js</li><li>Baileys</li><li>n8n</li><li>Caddy</li><li>Python</li><li>Gitea</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Storage &amp; Media</h3>
+            <ul>
+              <li>Nextcloud</li><li>Immich</li><li>Jellyfin</li><li>Navidrome</li><li>MinIO</li><li>ZFS</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Design &amp; Frontend</h3>
+            <ul>
+              <li>tokens.json</li><li>CSS variables</li><li>React</li><li>esbuild</li><li>Figma</li><li>WCAG AA gate</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 PROJECTS -->
+    <section class="section" id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="idx">03 — Projects</span>
+          <span class="rule" aria-hidden="true"></span>
+        </div>
+        <h2 style="font-size: var(--text-4xl)">What's running</h2>
+
+        <div class="filters" data-filter-group style="margin-top: var(--space-6)">
+          <button aria-pressed="true" data-filter="all">All</button>
+          <button aria-pressed="false" data-filter="infra">Infrastructure</button>
+          <button aria-pressed="false" data-filter="apps">Apps</button>
+          <button aria-pressed="false" data-filter="design">Design</button>
+          <button aria-pressed="false" data-filter="os">OS</button>
+        </div>
+
+        <div class="proj-grid">
+          <!-- build:projects -->
+          <a class="proj-card" data-cat="infra" href="/portfolio/#homelab">
+            <div class="proj-cover c-infra"><span class="glyph">⌗</span></div>
+            <div class="proj-body">
+              <div class="topline"><span>Infrastructure</span><span><span class="dot dot--live"></span>Live</span></div>
+              <h3>The Homelab</h3>
+              <p class="desc">Two-node Proxmox cluster: gateway, SSO, DNS, monitoring, NAS + backup, media, automation. Public via Cloudflare Tunnel — no exposed home IP.</p>
+              <div class="tags"><span class="tag">Proxmox</span><span class="tag">NPM</span><span class="tag">Authelia</span></div>
+            </div>
+          </a>
+          <a class="proj-card" data-cat="apps" href="/portfolio/#kinetika-hq">
+            <div class="proj-cover c-apps"><span class="glyph">◧</span></div>
+            <div class="proj-body">
+              <div class="topline"><span>Apps</span><span><span class="dot dot--live"></span>Live</span></div>
+              <h3>Kinetika HQ</h3>
+              <p class="desc">A single static launcher for every internal tool, served by Caddy behind SSO. The front door to the homelab.</p>
+              <div class="tags"><span class="tag">Static</span><span class="tag">Caddy</span><span class="tag">SSO</span></div>
+            </div>
+          </a>
+          <a class="proj-card" data-cat="apps" href="/portfolio/#kost-hq">
+            <div class="proj-cover c-apps"><span class="glyph">◑</span></div>
+            <div class="proj-body">
+              <div class="topline"><span>Apps</span><span><span class="dot dot--live"></span>Live</span></div>
+              <h3>Kost HQ</h3>
+              <p class="desc">Property management run over WhatsApp with Baileys — tenants, payments and operations in the channel people already use.</p>
+              <div class="tags"><span class="tag">Node.js</span><span class="tag">Baileys</span><span class="tag">WhatsApp</span></div>
+            </div>
+          </a>
+          <a class="proj-card" data-cat="design" href="/docs/">
+            <div class="proj-cover c-design"><span class="glyph">◈</span></div>
+            <div class="proj-body">
+              <div class="topline"><span>Design</span><span><span class="dot dot--online"></span>v2.5.0</span></div>
+              <h3>Kinetika Design System</h3>
+              <p class="desc">Framework-neutral tokens through a WCAG AA contrast gate, with a React component layer. Codenamed ir0nm0nk. Released CC0.</p>
+              <div class="tags"><span class="tag">tokens.json</span><span class="tag">React</span><span class="tag">CC0</span></div>
+              <span class="ext">Read the docs →</span>
+            </div>
+          </a>
+          <a class="proj-card" data-cat="os" href="https://github.com/gitomiko/KinetikaOS">
+            <div class="proj-cover c-os"><span class="glyph">⬡</span></div>
+            <div class="proj-body">
+              <div class="topline"><span>OS · 2025</span><span><span class="dot dot--planned"></span>In dev</span></div>
+              <h3>KinetikaOS</h3>
+              <p class="desc">An Arch-based productivity distro — ROCm preconfigured, a GNOME theme in the ir0nm0nk identity. On hold while the design system matures as the base.</p>
+              <div class="tags"><span class="tag">Arch</span><span class="tag">GNOME</span><span class="tag">ROCm</span></div>
+              <span class="ext">View on GitHub →</span>
+            </div>
+          </a>
+          <a class="proj-card" data-cat="infra" href="/portfolio/#ir0nm0nk">
+            <div class="proj-cover c-hw"><span class="glyph">⏥</span></div>
+            <div class="proj-body">
+              <div class="topline"><span>Hardware</span><span><span class="dot dot--online"></span>Edge node</span></div>
+              <h3>ir0nm0nk</h3>
+              <p class="desc">The dual-Xeon, RTX 3060 edge compute node and second cluster member, running creative-AI workloads. Lent its name to the design system's default skin.</p>
+              <div class="tags"><span class="tag">Proxmox</span><span class="tag">RTX 3060</span><span class="tag">ComfyUI</span></div>
+            </div>
+          </a>
+    <!-- /build:projects -->
+        </div>
+
+        <p style="margin-top: var(--space-8)"><a class="btn btn-ghost" href="/portfolio/">All projects in detail →</a></p>
+      </div>
+    </section>
+
+    <!-- 04 CONTACT -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="idx">04 — Contact</span>
+          <span class="rule" aria-hidden="true"></span>
+        </div>
+        <div class="contact-grid">
+          <div>
+            <h2 style="font-size: var(--text-4xl); max-width: 16ch">Got something <span style="color: var(--color-accent-primary-text)">interesting?</span> Let's talk.</h2>
+            <p class="lead" style="margin-top: var(--space-5)">Open to collaboration — a creative-tech project, a self-hosting build, or just comparing homelab notes.</p>
+            <div class="links">
+              <!-- build:contact-links -->
+              <a href="mailto:gitomiko@kinetika.id">gitomiko@kinetika.id</a>
+              <a href="https://github.com/gitomiko">GitHub ↗</a>
+              <a href="https://twitter.com/gitomiko">Twitter / X ↗</a>
+              <span class="meta">📍 Yogyakarta, Indonesia · UTC+7</span>
+    <!-- /build:contact-links -->
+            </div>
+          </div>
+          <form class="contact-form" data-mailto="gitomiko@kinetika.id">
+            <div>
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" placeholder="Your name" required>
+            </div>
+            <div>
+              <label for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
+            <div>
+              <label for="cf-msg">Message</label>
+              <textarea id="cf-msg" name="message" placeholder="What's the project about?" required></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Send message →</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <a class="footer-lockup" href="/" aria-label="Kinetika home"><span class="footer-symbol" aria-hidden="true"></span><span class="footer-wordmark" aria-hidden="true"></span></a>
+          <p class="meta" style="margin-top: var(--space-4); max-width: 36ch">Built by hand. Honest by default.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <a href="#projects">Projects</a>
+          <a href="/docs/">Design System</a>
+          <a href="/blog/">Blog</a>
+        </div>
+        <div>
+          <h4>Build</h4>
+          <a href="https://github.com/gitomiko/KinetikaOS">KinetikaOS</a>
+          <a href="https://github.com/gitomiko">GitHub</a>
+        </div>
+      </div>
+      <p class="colophon">© <span data-year>2026</span> Wak Gito · Kinetika · Yogyakarta, Indonesia · UTC+7. Design system released CC0. Self-hosted, hand-built.</p>
+    </div>
+  </footer>
+</body>
+</html>

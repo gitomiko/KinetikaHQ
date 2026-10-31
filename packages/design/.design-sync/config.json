@@ -1,0 +1,19 @@
+{
+  "projectId": "05331ee3-d586-41cf-8232-0abb756c65b2",
+  "pkg": "kinetika",
+  "globalName": "Kinetika",
+  "shape": "package",
+  "cssEntry": "design/tokens.css",
+  "componentSrcMap": {
+    "Button": "src/components/Button.jsx",
+    "Badge": "src/components/Badge.jsx",
+    "Card": "src/components/Card.jsx"
+  },
+  "buildCmd": "npm run build",
+  "readmeHeader": ".design-sync/conventions.md",
+  "dtsPropsFor": {
+    "Button": "variant?: 'primary' | 'secondary'; type?: string; className?: string; style?: React.CSSProperties; children?: React.ReactNode; disabled?: boolean; onClick?: React.MouseEventHandler<HTMLButtonElement>;",
+    "Badge": "variant?: 'patina' | 'verdigris' | 'azure' | 'teal' | 'amethyst' | 'garnet'; className?: string; children?: React.ReactNode;",
+    "Card": "active?: boolean; className?: string; style?: React.CSSProperties; children?: React.ReactNode;"
+  }
+}

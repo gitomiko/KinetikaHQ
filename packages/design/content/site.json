@@ -1,0 +1,21 @@
+{
+  "hero": {
+    "chip": "Self-hosted · Yogyakarta, Indonesia · UTC+7",
+    "name": "People. Ideas. Systems.",
+    "headlineAccent": "Built by hand.",
+    "headlinePlain": "Honest by default."
+  },
+  "exploring": [
+    "Local AI · ComfyUI",
+    "KinetikaOS",
+    "AX tooling",
+    "Gitea Actions CI"
+  ],
+  "contact": {
+    "intro": "Open to collaboration — a creative-tech project, a self-hosting build, or just comparing homelab notes.",
+    "email": "gitomiko@kinetika.id",
+    "github": "https://github.com/gitomiko",
+    "twitter": "https://twitter.com/gitomiko",
+    "location": "Yogyakarta, Indonesia · UTC+7"
+  }
+}

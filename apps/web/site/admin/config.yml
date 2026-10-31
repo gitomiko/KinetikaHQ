@@ -1,0 +1,105 @@
+# Kinetika — Sveltia/Decap CMS config
+# Edits the Git-tracked content layer. After saving, run `npm run build` to
+# regenerate site/, then deploy. See CMS_RUNBOOK.md.
+
+# Remote backend (editing from anywhere). Repo is on GitHub as gitomiko/Kinetika.
+# For Gitea-only or local editing, see CMS_RUNBOOK.md.
+backend:
+  name: github
+  repo: gitomiko/Kinetika
+  branch: main
+
+# Local editing: when /admin is opened on localhost, Sveltia offers
+# "Work with Local Repository" (no auth, edits files directly via the browser
+# File System Access API in a Chromium browser).
+local_backend: true
+
+media_folder: "site/assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  # ---------- Site settings (single file) ----------
+  - name: settings
+    label: "Site settings"
+    files:
+      - name: site
+        label: "Site"
+        file: "content/site.json"
+        fields:
+          - label: "Hero"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Status chip", name: chip, widget: string }
+              - { label: "Name", name: name, widget: string }
+              - { label: "Headline — accent", name: headlineAccent, widget: string }
+              - { label: "Headline — plain", name: headlinePlain, widget: string }
+          - label: "Currently exploring"
+            name: exploring
+            widget: list
+            field: { label: Tag, name: tag, widget: string }
+          - label: "Contact"
+            name: contact
+            widget: object
+            fields:
+              - { label: "Intro", name: intro, widget: text }
+              - { label: "Email", name: email, widget: string }
+              - { label: "GitHub URL", name: github, widget: string }
+              - { label: "Twitter/X URL", name: twitter, widget: string }
+              - { label: "Location", name: location, widget: string }
+
+  # ---------- Projects (single file with a list) ----------
+  - name: projects
+    label: "Projects"
+    files:
+      - name: projects
+        label: "Projects"
+        file: "content/projects.json"
+        fields:
+          - label: "Projects"
+            name: projects
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: title, widget: string }
+              - label: "Category"
+                name: category
+                widget: select
+                options: ["infra", "apps", "design", "os"]
+              - { label: "Category label", name: categoryLabel, widget: string }
+              - { label: "Status text", name: status, widget: string }
+              - label: "Status dot"
+                name: statusDot
+                widget: select
+                options: ["live", "online", "planned"]
+              - label: "Cover style"
+                name: cover
+                widget: select
+                options: ["c-infra", "c-apps", "c-design", "c-os", "c-hw"]
+              - { label: "Glyph", name: glyph, widget: string }
+              - { label: "Short description (card)", name: desc, widget: text }
+              - { label: "Long description (portfolio)", name: longDesc, widget: text }
+              - label: "Tags"
+                name: tags
+                widget: list
+                field: { label: Tag, name: tag, widget: string }
+              - { label: "Stack line (portfolio)", name: stackLine, widget: string }
+              - { label: "Link (href)", name: href, widget: string }
+              - { label: "Portfolio anchor id", name: anchor, widget: string, required: false }
+              - { label: "External link text", name: ext, widget: string, required: false }
+
+  # ---------- Blog (folder of markdown) ----------
+  - name: blog
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: "Title", name: title, widget: string }
+      - { label: "Date", name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { label: "Category", name: category, widget: string, default: "Notes" }
+      - { label: "Summary", name: summary, widget: text }
+      - { label: "Draft", name: draft, widget: boolean, default: false }
+      - { label: "Body", name: body, widget: markdown }

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio — Kinetika</title>
+  <meta name="description" content="What's built across the Kinetika ecosystem: the homelab, Kinetika HQ, Kost HQ, the design system, and KinetikaOS.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Syne:wght@400;500;700;800&family=DM+Mono:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="/assets/tokens.css">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/brand.css">
+  <script src="/assets/site.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/"><span class="mark" aria-hidden="true"></span> Kinetika</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav">≡</button>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a href="/docs/">Docs</a>
+        <a href="/portfolio/">Portfolio</a>
+        <a href="/blog/">Blog</a>
+        <a href="https://github.com/gitomiko/KinetikaOS">Source</a>
+        <button class="theme-toggle" aria-label="Switch theme">☀</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-head">
+      <div class="wrap">
+        <p class="eyebrow">Portfolio</p>
+        <h1>What's built</h1>
+        <p class="lead">Kinetika isn't a slide deck — it's running. Here's the ecosystem, layer by layer, with honest status on each.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="grid grid--2">
+          <!-- build:portfolio -->
+          <article class="card" id="homelab">
+            <p class="meta"><span class="dot dot--live"></span>Live</p>
+            <h3>The Homelab</h3>
+            <p>A two-node Proxmox cluster running the whole stack: reverse-proxy gateway, SSO, internal DNS, monitoring and metrics, NAS + backup tiers, media services, and automation. Public services reach the world through a Cloudflare Tunnel — no exposed home IP.</p>
+            <p class="meta">Proxmox · NPM · Authelia · n8n · Nextcloud · Immich · Jellyfin · Grafana</p>
+          </article>
+
+          <article class="card" id="kinetika-hq">
+            <p class="meta"><span class="dot dot--live"></span>Live</p>
+            <h3>Kinetika HQ</h3>
+            <p>A single static launcher for every internal tool, served by Caddy behind SSO. The card catalog auto-derives public routes; private endpoints stay in an untracked local config. It's the front door to the homelab.</p>
+            <p class="meta">Static · Caddy · SSO · self-hosted</p>
+          </article>
+
+          <article class="card" id="kost-hq">
+            <p class="meta"><span class="dot dot--live"></span>Live</p>
+            <h3>Kost HQ</h3>
+            <p>Property management run over WhatsApp using Baileys — tenants, payments, and operations handled in the channel people already use. A v2 on the AX layer is on the roadmap.</p>
+            <p class="meta">Node.js · Baileys · WhatsApp</p>
+          </article>
+
+          <article class="card" id="design-system">
+            <p class="meta"><span class="dot dot--online"></span>v2.5.0</p>
+            <h3>Kinetika Design System</h3>
+            <p>Framework-neutral design tokens through a WCAG AA contrast gate, plus a React component layer. Codenamed ir0nm0nk. Released CC0. <a href="/docs/">See the docs →</a></p>
+            <p class="meta">tokens.json · CSS variables · React · esbuild</p>
+          </article>
+
+          <article class="card" id="kinetikaos">
+            <p class="meta"><span class="dot dot--planned"></span>In dev</p>
+            <h3>KinetikaOS</h3>
+            <p>An Arch-based distribution in Workstation and Server editions — ROCm preconfigured, a GNOME theme in the ir0nm0nk identity, and an installer script. Currently on hold while the design system matures as the base layer.</p>
+            <p class="meta">Arch · GNOME · ROCm</p>
+          </article>
+
+          <article class="card" id="ir0nm0nk">
+            <p class="meta"><span class="dot dot--online"></span>Edge node</p>
+            <h3>ir0nm0nk</h3>
+            <p>The dual-Xeon, RTX 3060 edge compute node and second Proxmox cluster member. It runs creative-AI workloads and lent its name to the design system's default skin.</p>
+            <p class="meta">Proxmox · Xeon · RTX 3060 · ComfyUI</p>
+          </article>
+    <!-- /build:portfolio -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="cols">
+        <div><a class="footer-lockup" href="/" aria-label="Kinetika home"><span class="footer-symbol" aria-hidden="true"></span><span class="footer-wordmark" aria-hidden="true"></span></a><p class="meta" style="margin-top: var(--space-4)">Built by hand. Honest by default.</p></div>
+        <div><h4>Explore</h4><a href="/docs/">Design System</a><a href="/portfolio/">Portfolio</a><a href="/blog/">Blog</a></div>
+        <div><h4>Build</h4><a href="https://github.com/gitomiko/KinetikaOS">KinetikaOS</a><a href="https://github.com/gitomiko/KinetikaOS">Source on GitHub</a></div>
+      </div>
+      <p class="colophon">© <span data-year>2026</span> Wak Gito · Kinetika. Design system released CC0. Self-hosted, hand-built.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog — Kinetika</title>
+  <meta name="description" content="Notes from building Kinetika by hand — the homelab, the design system, and the philosophy underneath.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Syne:wght@400;500;700;800&family=DM+Mono:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="/assets/tokens.css">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/brand.css">
+  <script src="/assets/site.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/"><span class="mark" aria-hidden="true"></span> Kinetika</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav">≡</button>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a href="/docs/">Docs</a>
+        <a href="/portfolio/">Portfolio</a>
+        <a href="/blog/">Blog</a>
+        <a href="https://github.com/gitomiko/KinetikaOS">Source</a>
+        <button class="theme-toggle" aria-label="Switch theme">☀</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-head">
+      <div class="wrap">
+        <p class="eyebrow">Blog</p>
+        <h1>Notes from the forge</h1>
+        <p class="lead">Working notes on building Kinetika by hand — decisions, trade-offs, and the occasional rabbit hole.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="wrap wrap--narrow">
+        <ul class="post-list">
+          <!-- build:posts -->
+          <li>
+            <p class="meta">2026-07-01 · Infrastructure</p>
+            <h3><a href="/blog/hosting-kinetika-on-the-homelab.html">Why kinetika.id runs on my homelab</a></h3>
+            <p style="color: var(--color-text-secondary)">Choosing self-hosting over GitHub Pages for the Kinetika site, and how a Cloudflare Tunnel makes serving the apex from a homelab safe.</p>
+          </li>
+    <!-- /build:posts -->
+          <li>
+            <p class="meta">Coming soon · Design</p>
+            <h3 style="color: var(--color-text-tertiary)">Naming colors after what metals become</h3>
+            <p style="color: var(--color-text-tertiary)">Patina, verdigris, azurite, chrysocolla — why the Kinetika palette is named for oxidation, and how each one still passes WCAG AA.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="cols">
+        <div><a class="footer-lockup" href="/" aria-label="Kinetika home"><span class="footer-symbol" aria-hidden="true"></span><span class="footer-wordmark" aria-hidden="true"></span></a><p class="meta" style="margin-top: var(--space-4)">Built by hand. Honest by default.</p></div>
+        <div><h4>Explore</h4><a href="/docs/">Design System</a><a href="/portfolio/">Portfolio</a><a href="/blog/">Blog</a></div>
+        <div><h4>Build</h4><a href="https://github.com/gitomiko/KinetikaOS">KinetikaOS</a><a href="https://github.com/gitomiko/KinetikaOS">Source on GitHub</a></div>
+      </div>
+      <p class="colophon">© <span data-year>2026</span> Wak Gito · Kinetika. Design system released CC0. Self-hosted, hand-built.</p>
+    </div>
+  </footer>
+</body>
+</html>

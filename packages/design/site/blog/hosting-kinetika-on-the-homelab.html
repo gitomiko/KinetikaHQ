@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why kinetika.id runs on my homelab — Kinetika</title>
+  <meta name="description" content="Choosing self-hosting over GitHub Pages for the Kinetika site, and how a Cloudflare Tunnel makes serving the apex from a homelab safe.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Syne:wght@400;500;700;800&family=DM+Mono:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="/assets/tokens.css">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/brand.css">
+  <script src="/assets/site.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/"><span class="mark" aria-hidden="true"></span> Kinetika</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav">≡</button>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a href="/#about">About</a>
+        <a href="/#projects">Projects</a>
+        <a href="/docs/">Design System</a>
+        <a href="/blog/">Blog</a>
+        <button class="theme-toggle" aria-label="Switch theme">☀</button>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="page-head">
+      <div class="wrap wrap--narrow">
+        <p class="eyebrow">Infrastructure · 2026-07-01</p>
+        <h1>Why kinetika.id runs on my homelab</h1>
+      </div>
+    </div>
+    <article class="section">
+      <div class="wrap wrap--narrow article">
+        <p>The obvious way to host a static site is GitHub Pages. Free, fast, zero maintenance. For a brand whose whole premise is <em>built by hand, honest by default</em>, though, the obvious answer felt like a contradiction — and once I looked at what was already running, it stopped making sense on the merits too.</p>
+        <blockquote>Dependency is a choice, not a requirement.</blockquote>
+        <h2>The homelab was already doing this</h2>
+        <p>The cluster already serves public services — the dashboard, uptime monitoring, the property-management app — through a Cloudflare Tunnel into a reverse-proxy gateway. The tunnel is the important part: nothing is port-forwarded, my home IP is never exposed, and TLS terminates at the edge. Serving one more static site is a single new origin, not a new architecture.</p>
+        <h2>Jekyll was the wrong tool</h2>
+        <p>GitHub Pages nudges you toward Jekyll, which is Ruby. My site is built by a Node pipeline — the design tokens compile from <code>tokens.json</code> with a small script, and the components bundle with esbuild. Bolting a Ruby static-site generator onto that means maintaining two toolchains that don't talk to each other. So the site is plain hand-authored HTML and CSS that consumes the same <code>tokens.css</code> the rest of the system uses. No generator, no lock-in.</p>
+        <h2>The one honest trade-off</h2>
+        <p>Self-hosting has exactly one real cost: if the house loses power or the ISP drops, the public site goes down. Cloudflare caches enough to soften it, but it won't fully cover an outage. The hedge — if I want it — is to push the same built output to a static host as an always-on mirror. Build once, deploy to two places. That keeps ownership where it matters and borrows uptime where it's cheap.</p>
+        <h2>What it actually looks like</h2>
+        <p>A Caddy container serves the built <code>site/</code> directory. The gateway proxies the apex to it. The tunnel exposes the apex as a <strong>public</strong> origin — deliberately without the access policy that guards the admin subdomains. Deploying a change is: rebuild, copy the folder to the node, restart one container.</p>
+        <p>Built by hand. Honest by default. It turned out the honest choice was also the practical one.</p>
+        <p style="margin-top: var(--space-10)"><a class="btn btn-ghost" href="/blog/">← Back to the blog</a></p>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="cols">
+        <div><a class="footer-lockup" href="/" aria-label="Kinetika home"><span class="footer-symbol" aria-hidden="true"></span><span class="footer-wordmark" aria-hidden="true"></span></a><p class="meta" style="margin-top: var(--space-4)">Built by hand. Honest by default.</p></div>
+        <div><h4>Explore</h4><a href="/#projects">Projects</a><a href="/docs/">Design System</a><a href="/blog/">Blog</a></div>
+        <div><h4>Build</h4><a href="https://github.com/gitomiko/KinetikaOS">KinetikaOS</a><a href="https://github.com/gitomiko">GitHub</a></div>
+      </div>
+      <p class="colophon">© <span data-year>2026</span> Wak Gito · Kinetika. Design system released CC0. Self-hosted, hand-built.</p>
+    </div>
+  </footer>
+</body>
+</html>

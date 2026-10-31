@@ -1,0 +1,59 @@
+{
+  "name": "kinetika",
+  "version": "2.5.0",
+  "description": "Kinetika Design System — oxidized, honest, accessible. Framework-neutral tokens + React components.",
+  "license": "CC0-1.0",
+  "type": "module",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./tokens.css": "./design/tokens.css",
+    "./tokens": "./design/tokens.js",
+    "./fonts.css": "./design/fonts.css"
+  },
+  "files": [
+    "src",
+    "design/tokens.css",
+    "design/tokens.js",
+    "design/tokens.d.ts",
+    "design/fonts.css",
+    "dist"
+  ],
+  "sideEffects": [
+    "*.css",
+    "./src/index.js"
+  ],
+  "scripts": {
+    "build:tokens": "node design/build-tokens.mjs",
+    "build:bundle": "node scripts/build-bundle.mjs",
+    "build:site": "node scripts/build-site.mjs",
+    "sync:assets": "cp design/tokens.css site/assets/tokens.css && cp design/fonts.css site/assets/fonts.css",
+    "build": "npm run build:tokens && npm run sync:assets && npm run build:bundle && npm run build:site",
+    "preview": "python3 -m http.server -d site 8080"
+  },
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "react",
+    "css-variables",
+    "accessibility",
+    "wcag",
+    "kinetika"
+  ],
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.1"
+  }
+}
